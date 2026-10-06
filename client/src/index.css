@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #090e17;
+  color: #f1f5f9;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessibility Focus States for Screen Readers & Keyboard Nav */
+*:focus-visible {
+  outline: 4px solid #facc15 !important;
+  outline-offset: 4px !important;
+}
+
+/* Touch Friendly Targets */
+button, input, select, a {
+  touch-action: manipulation;
+}
+
+/* ------------------------------------------------------------- */
+/* EXTREME HIGH CONTRAST MODE (WCAG AAA+ for Low Vision/Elderly) */
+/* ------------------------------------------------------------- */
+.extreme-contrast {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.extreme-contrast * {
+  border-color: #ffee00 !important;
+}
+
+.extreme-contrast body,
+.extreme-contrast main,
+.extreme-contrast div.app-container {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.extreme-contrast .contrast-card {
+  background-color: #000000 !important;
+  border: 3px solid #ffee00 !important;
+  color: #ffffff !important;
+}
+
+.extreme-contrast .contrast-btn-primary {
+  background-color: #ffee00 !important;
+  color: #000000 !important;
+  border: 3px solid #ffffff !important;
+  font-weight: 900 !important;
+}
+
+.extreme-contrast .contrast-btn-secondary {
+  background-color: #000000 !important;
+  color: #ffee00 !important;
+  border: 3px solid #ffee00 !important;
+  font-weight: 800 !important;
+}
+
+.extreme-contrast .contrast-text-accent {
+  color: #ffee00 !important;
+}
+
+.extreme-contrast .contrast-highlight {
+  background-color: #ffee00 !important;
+  color: #000000 !important;
+}
+
+/* Central Microphone Wave Animation */
+@keyframes mic-pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 25px rgba(245, 158, 11, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+}
+
+.mic-active-pulse {
+  animation: mic-pulse-ring 1.8s infinite;
+}
+
+/* Custom Scrollbars for High Contrast */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
