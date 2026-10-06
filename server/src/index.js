@@ -28,7 +28,7 @@ app.use(cors({
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'x-unlock-token']
- }));
+}));
 
 // Body parser with 15MB limit for document camera uploads
 app.use(express.json({ limit: '15mb' }));
@@ -73,6 +73,12 @@ app.get('/api/saathi-peti', authenticateJWT, authenticateUnlockToken, getPetiHis
 app.post('/api/saathi-peti', authenticateJWT, saveToPeti);
 // Removing item from vault requires JWT
 app.delete('/api/saathi-peti/:id', authenticateJWT, removeFromPeti);
+app.get('/', (req, res) => {
+  res.json({
+    message: "GramSaathi API is running",
+    status: "success"
+  });
+});
 
 // 404 handler
 app.use((req, res) => {
